@@ -1,0 +1,396 @@
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-color: #f6f5f1;
+  text-align: center;
+  padding: 0; /* Mudei de 20px para 0 */
+}
+
+.scroll-down {
+  text-align: center;       /* centraliza horizontalmente */
+  margin-top: 50px;         /* espaço depois do botão */
+  font-size: 2em;           /* tamanho da seta */
+  color:#f6f5f1;           /* cor da seta */
+  cursor: pointer;          /* mostra que é clicável */
+  animation: bounce 2s infinite; /* animação */
+}
+
+/* animação de "pulsar" para baixo */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+
+/* 2. CORREÇÃO DA FONTE PRINCIPAL */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 7em; /* Reduzido de 10em para caber na tela */
+  color: #4a2c2a;
+}
+
+h2 {
+  font-family: 'Great Vibes', cursive;
+  color:#4a2c2a;
+  font-size: 50px;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  color:#4a2c2a
+}
+
+/* 3. ESTRUTURA DO HERO (IMAGEM + TEXTO SOBREPOSTO) */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Altura da área da foto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* A Imagem de Fundo com Esfumado */
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.7;
+  z-index: 1;
+
+  -webkit-mask-image: linear-gradient(to bottom, rgb(50, 32, 4) 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, rgb(50, 32, 4) 65%, transparent 100%);
+}
+
+/* Sombra Escura para dar Leitura ao Texto */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* Escurece a imagem por igual */
+  z-index: 2;
+}
+
+/* Texto e Botão por cima da Foto */
+.overlay {
+  position: relative;
+  z-index: 3; /* Fica acima da foto e da sombra */
+  color: #ffffff;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.overlay h1 {
+  font-size: 7em;
+  color: #ffffff; /* Letra branca na foto */
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra direta na fonte */
+}
+
+.overlay p {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin: 10px 0 20px 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color: #333;  
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-left: 30%;
+  margin-bottom: 24px;
+}
+
+.card-p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color: #333;  
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+.card-duvidas {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color: #333;  
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.historia p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+
+
+.santo {
+  margin: 20px 0;
+}
+
+.desenho {
+  position: absolute;
+  width: 500px;
+  height: auto;
+  top: 1000px;
+  left: 2%;
+  z-index: 2;
+  margin-right: 4%;
+}
+
+.botao_seta {
+  display: flex;
+  justify-content: flex-start; /* Alinha o conteúdo totalmente à esquerda */
+  align-items: center;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu2 {
+  display: flex;
+  justify-content: flex-start; /* Força o conteúdo para a esquerda */
+  padding: 16px 24px;         /* Distância das bordas da tela */
+  width: 96.8%;
+  background-color: #9e8364; /* cor de fundo do menu */
+}
+
+.botao {
+  text-decoration: none;
+  display: inline-block;
+  padding: 14px 20px;
+  background-color: #8f442d;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease; /* animação suave */
+  font-family: 'Raleway', sans-serif;
+}
+
+.botao:hover {
+  background-color: #a35740;
+  transform: translateY(-5px); /* sobe ao passar o mouse */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.historia {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 10px;
+  background: #fff3f3;
+  padding: 0 15px;
+  border-radius: 5px;
+}
+
+.historia img {
+  max-width: 200px;   /* controla o tamanho */
+  margin: 20px auto;  /* centraliza */
+  display: block;
+  border-radius: 8px; /* cantos arredondados */
+}
+
+
+.santo input[type="checkbox"] {
+  display: none;
+}
+
+.santo input[type="checkbox"]:checked ~ .historia {
+  max-height: 600px;
+  padding: 15px;
+}
+
+
+
+.container {
+  display: flex;          /* Ativa o modo Flexbox */
+  flex-wrap: wrap;        /* Quebra a linha se não couber na tela (bom para celular) */
+  gap: 20px;              /* Cria um espaço de 20px entre os cards */
+  justify-content: center; /* Centraliza os cards na tela */
+  padding: 20px;
+}
+
+.menu {
+  background-color: #9e8364; /* cor de fundo do menu */
+  padding: 16px 16px;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 18px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3em;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color:#8f442d; /* muda para marrom ao passar o mouse */
+}
+
+.rodape p{
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+.rodape {
+  background-color: #9e8364; /* Marrom escuro da paleta */
+  padding: 16px 16px;
+  margin-top: 100px;          /* Espaço entre o conteúdo da página e o rodapé */
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+
+
+.card-link {
+  text-decoration: none; /* remove sublinhado do link */
+  color: inherit;        /* mantém cor do texto */
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;       /* largura fixa */
+  height: 350px;      /* altura fixa */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* distribui conteúdo */
+  text-align: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.card2 {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 1400px;       /* largura fixa */
+  height: 300px;      /* altura fixa */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;              /* mantém a largura proporcional */
+  height: 200px;            /* altura fixa (opcional) */
+  object-fit: cover;        /* corta proporcionalmente */
+  border-radius: 5%;
+}
+
+
+.card:hover, .card2:hover {
+  transform: translateY(-10px); /* sobe ao passar o mouse */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* sombra mais forte */
+}
+
+/* BOLINHAS e legendas - DÚVIDAS */
+
+.bolinha-azul {
+  width: 20px;
+  height: 20px;
+  background-color: #3363ff; /* Cor da bolinha */
+  border-radius: 50%;     /* Transforma o quadrado em círculo */
+  display: inline-block;
+  margin-left: 30%;
+  flex-shrink: 0;
+}
+
+.bolinha-branca {
+  width: 20px;
+  height: 20px;
+  background-color: #fff; /* Cor da bolinha */
+  border-radius: 50%;     /* Transforma o quadrado em círculo */
+  display: inline-block;
+  margin-left: 29.95%;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  margin-top: 2px;
+}
+
+.bolinha-preta {
+  width: 20px;
+  height: 20px;
+  background-color: #000000; /* Cor da bolinha */
+  border-radius: 50%;     /* Transforma o quadrado em círculo */
+  display: inline-block;
+  margin-left: 30%;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bolinha-p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color:#4a2c2a;
+  margin-top: -22px;  /* Puxa o texto para cima */
+  margin-left: -150px;
+}
+
+.bolinha-p2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color:#4a2c2a;
+  margin-top: -22px;  /* Puxa o texto para cima */
+  margin-left: -250px;
+}
+
+.bolinha-p3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  color:#4a2c2a;
+  margin-top: -20px;  /* Puxa o texto para cima */
+  margin-left: -96px;
+}
